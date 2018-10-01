@@ -106,38 +106,19 @@ ol {
   color: #3b556e;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    color: green;
+a.tooltip span {
+       z-index:10;
+       display:none;
+       padding:10px 10px;
+       width:30%;
+       line-height:16px;
+       border-radius:10px;
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 300px;
-    background-color: #3b556e;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -150px;
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #3b556e transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+a.tooltip:hover span {
+       display:inline;
+       position:absolute;
+       border:1px solid black;
+       color:#fff;
+       background:#3b556e;
 }
