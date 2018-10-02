@@ -1,0 +1,1198 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Loss Data Analytics},
+            pdfauthor={An open text authored by the Actuarial Community},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{econPeriod}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Loss Data Analytics}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{An open text authored by the Actuarial Community}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage{booktabs}
+\setcounter{secnumdepth}{2}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\emph{Date: 01 October 2018}
+
+\subsubsection*{Book Description}\label{book-description}
+\addcontentsline{toc}{subsubsection}{Book Description}
+
+\textbf{Loss Data Analytics} is an interactive, online, freely available
+text.
+
+\begin{itemize}
+\tightlist
+\item
+  The online version contains many interactive objects (quizzes,
+  computer demonstrations, interactive graphs, video, and the like) to
+  promote \emph{deeper learning}.
+\item
+  A subset of the book is available for \emph{offline reading} in pdf
+  and EPUB formats.
+\item
+  The online text will be available in multiple languages to promote
+  access to a \emph{worldwide audience}.
+\end{itemize}
+
+\subsubsection*{What will success look
+like?}\label{what-will-success-look-like}
+\addcontentsline{toc}{subsubsection}{What will success look like?}
+
+The online text will be freely available to a worldwide audience. The
+online version will contain many interactive objects (quizzes, computer
+demonstrations, interactive graphs, video, and the like) to promote
+deeper learning. Moreover, a subset of the book will be available in pdf
+format for low-cost printing. The online text will be available in
+multiple languages to promote access to a worldwide audience.
+
+\subsubsection*{How will the text be
+used?}\label{how-will-the-text-be-used}
+\addcontentsline{toc}{subsubsection}{How will the text be used?}
+
+This book will be useful in actuarial curricula worldwide. It will cover
+the loss data learning objectives of the major actuarial organizations.
+Thus, it will be suitable for classroom use at universities as well as
+for use by independent learners seeking to pass professional actuarial
+examinations. Moreover, the text will also be useful for the continuing
+professional development of actuaries and other professionals in
+insurance and related financial risk management industries.
+
+\subsubsection*{Why is this good for the
+profession?}\label{why-is-this-good-for-the-profession}
+\addcontentsline{toc}{subsubsection}{Why is this good for the
+profession?}
+
+An online text is a type of open educational resource (OER). One
+important benefit of an OER is that it equalizes access to knowledge,
+thus permitting a broader community to learn about the actuarial
+profession. Moreover, it has the capacity to engage viewers through
+active learning that deepens the learning process, producing analysts
+more capable of solid actuarial work. Why is this good for students and
+teachers and others involved in the learning process?
+
+Cost is often cited as an important factor for students and teachers in
+textbook selection (see a recent post on the
+\href{https://www.aei.org/publication/the-new-era-of-the-400-college-textbook-which-is-part-of-the-unsustainable-higher-education-bubble/}{\$400
+textbook}). Students will also appreciate the ability to ``carry the
+book around'' on their mobile devices.
+
+\subsubsection*{Why loss data analytics?}\label{why-loss-data-analytics}
+\addcontentsline{toc}{subsubsection}{Why loss data analytics?}
+
+Although the intent is that this type of resource will eventually
+permeate throughout the actuarial curriculum, one has to start
+somewhere. Given the dramatic changes in the way that actuaries treat
+data, loss data seems like a natural place to start. The idea behind the
+name \emph{loss data analytics} is to integrate classical loss data
+models from applied probability with modern analytic tools. In
+particular, we seek to recognize that big data (including social media
+and usage based insurance) are here and high speed computation s readily
+available.
+
+\subsubsection*{Project Goal}\label{project-goal}
+\addcontentsline{toc}{subsubsection}{Project Goal}
+
+The project goal is to have the actuarial community author our textbooks
+in a collaborative fashion.
+
+To get involved, please visit our
+\href{https://sites.google.com/a/wisc.edu/loss-data-analytics/}{Loss
+Data Analytics Project Site}.
+
+\section*{Acknowledgements}\label{acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+Edward Frees acknowledges the John and Anne Oros Distinguished Chair for
+Inspired Learning in Business which provided seed money to support the
+project. Frees and his Wisconsin colleagues also acknowledge a Society
+of Actuaries Center of Excellence Grant that provided funding to support
+work in dependence modeling and health initiatives.
+
+We acknowledge the Society of Actuaries for permission to use problems
+from their examinations.
+
+We thank Rob Hyndman, Monash University, for allowing us to use his
+excellent style files to produce the online version of the book.
+
+We thank Yihui Xie and his colleagues at
+\href{https://www.rstudio.com/}{Rstudio} for the
+\href{https://bookdown.org/yihui/bookdown/}{R bookdown} package that
+allows us to produce this book.
+
+We also wish to acknowledge the support and sponsorship of the
+\href{http://www.blackactuaries.org/}{International Association of Black
+Actuaries} in our joint efforts to provide actuarial educational content
+to all.
+
+\includegraphics[width=0.25000\textwidth]{Figures/IABA.png}
+
+\section*{Contributors}\label{contributors}
+\addcontentsline{toc}{section}{Contributors}
+
+The project goal is to have the actuarial community author our textbooks
+in a collaborative fashion. The following contributors have taken a
+leadership role in developing \emph{Loss Data Analytics}.
+
+\begin{itemize}
+\item
+  \textbf{Zeinab Amin} is the Director of the Actuarial Science Program
+  and Associate Dean for Undergraduate Studies of the School of Sciences
+  and Engineering at the American University in Cairo (AUC). Amin holds
+  a PhD in Statistics and is an Associate of the Society of Actuaries.
+  Amin is the recipient of the 2016 Excellence in Academic Service Award
+  and the 2009 Excellence in Teaching Award from AUC. Amin has designed
+  and taught a variety of statistics and actuarial science courses.
+  Amin's current area of research includes quantitative risk assessment,
+  reliability assessment, general statistical modelling, and Bayesian
+  statistics.
+\item
+  \textbf{Katrien Antonio}, KU Leuven
+\item
+  \textbf{Jan Beirlant}, KU Leuven
+\item
+  \textbf{Carolina Castro} - University of Buenos Aires
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Curtis Gary Dean} is the Lincoln Financial Distinguished
+  Professor of Actuarial Science at Ball State University. He is a
+  Fellow of the Casualty Actuarial Society and a CFA charterholder. He
+  has extensive practical experience as an actuary at American States
+  Insurance, SAFECO, and Travelers. He has served the CAS and actuarial
+  profession as chair of the Examination Committee, first
+  editor-in-chief for \emph{Variance: Advancing the Science of Risk},
+  and as a member of the Board of Directors and the Executive Council.
+  He contributed a chapter to \emph{Predictive Modeling Applications in
+  Actuarial Science} published by Cambridge University Press.
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Edward W. (Jed) Frees} is an emeritus professor, formerly the
+  Hickman-Larson Chair of Actuarial Science at the University of
+  Wisconsin-Madison. He is a Fellow of both the Society of Actuaries and
+  the American Statistical Association. He has published extensively (a
+  four-time winner of the Halmstad and Prize for best paper published in
+  the actuarial literature) and has written three books. He also is a
+  co-editor of the two-volume series \emph{Predictive Modeling
+  Applications in Actuarial Science} published by Cambridge University
+  Press.
+\end{itemize}
+
+\begin{itemize}
+\item
+  \textbf{Guojun Gan} is an assistant professor in the Department of
+  Mathematics at the University of Connecticut, where he has been since
+  August 2014. Prior to that, he worked at a large life insurance
+  company in Toronto, Canada for six years. He received a BS degree from
+  Jilin University, Changchun, China, in 2001 and MS and PhD degrees
+  from York University, Toronto, Canada, in 2003 and 2007, respectively.
+  His research interests include data mining and actuarial science. He
+  has published several books and papers on a variety of topics,
+  including data clustering, variable annuity, mathematical finance,
+  applied statistics, and VBA programming.
+\item
+  \textbf{Lisa Gao} is a doctoral student at the University of
+  Wisconsin-Madison.
+\item
+  \textbf{José Garrido}, Concordia University
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Noriszura Ismail} is a Professor and Head of Actuarial Science
+  Program, Universiti Kebangsaan Malaysia (UKM). She specializes in Risk
+  Modelling and Applied Statistics. She obtained her BSc and MSc
+  (Actuarial Science) in 1991 and 1993 from University of Iowa, and her
+  PhD (Statistics) in 2007 from UKM. She also passed several papers from
+  Society of Actuaries in 1994. She has received several research grants
+  from Ministry of Higher Education Malaysia (MOHE) and UKM, totaling
+  about MYR1.8 million. She has successfully supervised and
+  co-supervised several PhD students (13 completed and 11 on-going). She
+  currently has about 180 publications, consisting of 88 journals and 95
+  proceedings.
+\end{itemize}
+
+\begin{itemize}
+\item
+  \textbf{Joseph H.T. Kim}, Ph.D., FSA, CERA, is Associate Professor of
+  Applied Statistics at Yonsei University, Seoul, Korea. He holds a
+  Ph.D.~degree in Actuarial Science from the University of Waterloo, at
+  which he taught as Assistant Professor. He also worked in the life
+  insurance industry. He has published papers in \emph{Insurance
+  Mathematics and Economics}, \emph{Journal of Risk and Insurance},
+  \emph{Journal of Banking and Finance}, \emph{ASTIN Bulletin}, and
+  \emph{North American Actuarial Journal}, among others.
+\item
+  \textbf{Shyamalkumar Nariankadu} - University of Iowa
+\end{itemize}
+
+\begin{itemize}
+\item
+  \textbf{Nii-Armah Okine} is a dissertator at the business school of
+  University of Wisconsin-Madison with a major in actuarial science. He
+  obtained his master's degree in Actuarial science from Illinois State
+  University. His research interests includes micro-level reserving,
+  joint longitudinal-survival modeling, dependence modelling, micro
+  insurance and machine learning.
+\item
+  \textbf{Margie Rosenberg} - University of Wisconsin
+\end{itemize}
+
+\begin{itemize}
+\item
+  \textbf{Emine Selin Sarıdaş} is a doctoral candidate in the Statistics
+  department of Mimar Sinan University. She holds a bachelor degree in
+  Actuarial Science with a minor in Economics and a master degree in
+  Actuarial Science from Hacettepe University. Her research interest
+  includes dependence modeling, regression, loss models and life
+  contingencies.
+\item
+  \textbf{Peng Shi} - University of Wisconsin - Madison
+\item
+  \textbf{Jianxi Su}, Purdue University
+\item
+  \textbf{Tim Verdonck}, KU Leuven
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Krupa Viswanathan} is an Associate Professor in the Risk,
+  Insurance and Healthcare Management Department in the Fox School of
+  Business, Temple University. She is an Associate of the Society of
+  Actuaries. She teaches courses in Actuarial Science and Risk
+  Management at the undergraduate and graduate levels. Her research
+  interests include corporate governance of insurance companies, capital
+  management, and sentiment analysis. She received her Ph.D.~from The
+  Wharton School of the University of Pennsylvania.
+\end{itemize}
+
+\section*{Reviewers}\label{reviewers}
+\addcontentsline{toc}{section}{Reviewers}
+
+The project goal is to have the actuarial community author our textbooks
+in a collaborative fashion. Part of the writing process involves many
+reviewers who generously donated their time to help make this book
+better. They are:
+
+\begin{itemize}
+\tightlist
+\item
+  Chunsheng Ban, Ohio State University
+\item
+  Vytaras Brazauskas, University of Wisconsin - Milwaukee
+\item
+  Chun Yong Chew, Universiti Tunku Abdul Rahman (UTAR)
+\item
+  Eren Dodd, University of Southampton
+\item
+  Gordon Enderle, University of Wisconsin - Madison
+\item
+  Rob Erhardt, Wake Forest University
+\item
+  Liang (Jason) Hong, Robert Morris University
+\item
+  Hirokazu (Iwahiro) Iwasawa
+\item
+  Himchan Jeong, University of Connecticut
+\item
+  Paul Herbert Johnson, University of Wisconsin - Madison
+\item
+  Samuel Kolins, Lebonan Valley College
+\item
+  Andrew Soon-Yong Kwon, Zurich Re
+\item
+  Ambrose Lo, University of Iowa
+\item
+  Mark Maxwell, University of Texas at Austin
+\item
+  Tatjana Miljkovic, Miami University
+\item
+  Bell Ouelega, American University in Cairo
+\item
+  Zhiyu (Frank) Quan, University of Connecticut
+\item
+  Jiandong Ren, Western University
+\item
+  Rajesh V. Sahasrabuddhe, Oliver Wyman
+\item
+  Ranee Thiagarajah, Illinois State University
+\item
+  Ping Wang, Saint Johns University
+\item
+  Chengguo Weng, University of Waterloo
+\item
+  Toby White, Drake University
+\item
+  Michelle Xia, Northern Illinois University
+\item
+  Di (Cindy) Xu, University of Nebraska - Lincoln
+\item
+  Lina Xu, Columbia University
+\item
+  Jorge Yslas, University of Copenhagen
+\item
+  Jeffrey Zheng, Temple University
+\item
+  Hongjuan Zhou, Arizona State University
+\end{itemize}
+
+\chapter{Main Time Line}\label{main-time-line}
+
+Placeholder
+
+\section{Relevance of Analytics}\label{S:Intro}
+
+\subsection{What is Analytics?}\label{what-is-analytics}
+
+\subsection{Short and Long-term
+Insurance}\label{short-and-long-term-insurance}
+
+\subsection{Insurance Processes}\label{S:InsProcesses}
+
+\section{Insurance Company Operations}\label{S:PredModApps}
+
+\subsection{Initiating Insurance}\label{initiating-insurance}
+
+\subsection{Renewing Insurance}\label{renewing-insurance}
+
+\subsection{Claims and Product
+Management}\label{claims-and-product-management}
+
+\subsection{Loss Reserving}\label{S:Reserving}
+
+\section{Case Study: Wisconsin Property Fund}\label{S:LGPIF}
+
+\subsection{Fund Claims Variables: Frequency and
+Severity}\label{S:OutComes}
+
+\subsection{Fund Rating Variables}\label{S:FundVariables}
+
+\subsection{Fund Operations}\label{fund-operations}
+
+\section{Further Resources and
+Contributors}\label{Intro-further-reading-and-resources}
+
+\chapter{Frequency Modeling}\label{C:Frequency-Modeling}
+
+Placeholder
+
+\section{Frequency Distributions}\label{S:frequency-distributions}
+
+\subsection{How Frequency Augments Severity
+Information}\label{S:how-frequency-augments-severity-information}
+
+\subsubsection{Basic Terminology}\label{S:basic-terminology}
+
+\subsubsection{The Importance of
+Frequency}\label{S:the-importance-of-frequency}
+
+\subsubsection{Why Examine Frequency
+Information}\label{S:why-examine-frequency-information}
+
+\section{Basic Frequency
+Distributions}\label{S:basic-frequency-distributions}
+
+\subsection{Foundations}\label{S:foundations}
+
+\subsection{Moment and Probability Generating
+Functions}\label{S:generating-functions}
+
+\subsection{Important Frequency
+Distributions}\label{S:important-frequency-distributions}
+
+\subsubsection{Binomial Distribution}\label{S:binomial-distribution}
+
+\subsubsection{Poisson Distribution}\label{S:poisson-distribution}
+
+\subsubsection{Negative Binomial
+Distribution}\label{S:negative-binomial-distribution}
+
+\section{The (a, b, 0) Class}\label{S:the-a-b-0-class}
+
+\section{Estimating Frequency
+Distributions}\label{S:estimating-frequency-distributions}
+
+\subsection{Parameter estimation}\label{S:parameter-estimation}
+
+\subsection{Frequency Distributions
+MLE}\label{S:frequency-distributions-mle}
+
+\section{Other Frequency
+Distributions}\label{S:other-frequency-distributions}
+
+\subsection{Zero Truncation or
+Modification}\label{S:zero-truncation-or-modification}
+
+\section{Mixture Distributions}\label{S:mixture-distributions}
+
+\section{Goodness of Fit}\label{S:goodness-of-fit}
+
+\section{Exercises}\label{S:exercises}
+
+\section{Quiz}\label{S:quiz}
+
+\section{R Code for Plots in this
+Chapter}\label{r-code-for-plots-in-this-chapter}
+
+\section{Further Resources and
+Contributors}\label{Freq-further-reading-and-resources}
+
+\subsubsection*{Contributors}\label{contributors-1}
+\addcontentsline{toc}{subsubsection}{Contributors}
+
+\chapter{Varying Scale Gamma
+Densities}\label{varying-scale-gamma-densities}
+
+Placeholder
+
+\section{Further Resources and
+Contributors}\label{LM-further-reading-and-resources}
+
+\chapter{Model Selection and Estimation}\label{C:ModelSelection}
+
+Placeholder
+
+\section{Nonparametric Inference}\label{S:MS:NonParInf}
+
+\subsection{Nonparametric Estimation}\label{nonparametric-estimation}
+
+\subsubsection{Moment Estimators}\label{S:MS:MomentEstimator}
+
+\subsubsection{Empirical Distribution
+Function}\label{empirical-distribution-function}
+
+\subsubsection{Quantiles}\label{S:MS:QuantileEstimator}
+
+\subsubsection{Density Estimators}\label{density-estimators}
+
+\subsection{Tools for Model Selection}\label{S:MS:ToolsModelSelection}
+
+\subsubsection{Graphical Comparison of
+Distributions}\label{graphical-comparison-of-distributions}
+
+\subsubsection{Statistical Comparison of
+Distributions}\label{S:MS:Tools:Stats}
+
+\subsection{Starting Values}\label{starting-values}
+
+\subsubsection{Method of Moments}\label{method-of-moments}
+
+\subsubsection{Percentile Matching}\label{percentile-matching}
+
+\section{Model Selection}\label{S:MS:ModelSelection}
+
+\subsection{Iterative Model Selection}\label{iterative-model-selection}
+
+\subsection{Model Selection Based on a Training
+Dataset}\label{model-selection-based-on-a-training-dataset}
+
+\subsection{Model Selection Based on a Test
+Dataset}\label{model-selection-based-on-a-test-dataset}
+
+\subsection{Model Selection Based on
+Cross-Validation}\label{model-selection-based-on-cross-validation}
+
+\section{Estimation using Modified Data}\label{S:MS:ModifiedData}
+
+\subsection{Parametric Estimation using Modified
+Data}\label{parametric-estimation-using-modified-data}
+
+\subsubsection{Parametric Estimation using Grouped
+Data}\label{S:MS:GroupedData}
+
+\subsubsection{Censored Data}\label{censored-data}
+
+\subsubsection{Truncated Data}\label{truncated-data}
+
+\subsubsection{Parametric Estimation using Censored and Truncated
+Data}\label{parametric-estimation-using-censored-and-truncated-data}
+
+\subsection{Nonparametric Estimation using Modified
+Data}\label{nonparametric-estimation-using-modified-data}
+
+\subsubsection{Grouped Data}\label{grouped-data}
+
+\subsubsection{Right-Censored Empirical Distribution
+Function}\label{right-censored-empirical-distribution-function}
+
+\subsubsection{Right-Censored, Left-Truncated Empirical Distribution
+Function}\label{right-censored-left-truncated-empirical-distribution-function}
+
+\section{Bayesian Inference}\label{S:MS:BayesInference}
+
+\subsection{Bayesian Model}\label{bayesian-model}
+
+\subsection{Decision Analysis}\label{decision-analysis}
+
+\subsection{Posterior Distribution}\label{posterior-distribution}
+
+\section{Further Resources and
+Contributors}\label{MS:further-reading-and-resources}
+
+\subsubsection*{Exercises}\label{exercises}
+\addcontentsline{toc}{subsubsection}{Exercises}
+
+\chapter{Lorenz Curve}\label{lorenz-curve}
+
+Placeholder
+
+\section*{Technical Supplement A. Gini
+Statistic}\label{technical-supplement-a.-gini-statistic}
+\addcontentsline{toc}{section}{Technical Supplement A. Gini Statistic}
+
+\subsection*{TS A.1. The Classic Lorenz
+Curve}\label{ts-a.1.-the-classic-lorenz-curve}
+\addcontentsline{toc}{subsection}{TS A.1. The Classic Lorenz Curve}
+
+\subsection*{TS A.2. Ordered Lorenz Curve and the Gini
+Index}\label{ts-a.2.-ordered-lorenz-curve-and-the-gini-index}
+\addcontentsline{toc}{subsection}{TS A.2. Ordered Lorenz Curve and the
+Gini Index}
+
+\subsubsection*{Ordered Lorenz Curve}\label{ordered-lorenz-curve}
+\addcontentsline{toc}{subsubsection}{Ordered Lorenz Curve}
+
+\subsubsection*{Gini Index}\label{gini-index}
+\addcontentsline{toc}{subsubsection}{Gini Index}
+
+\subsection*{TS A.3. Out-of-Sample
+Validation}\label{ts-a.3.-out-of-sample-validation}
+\addcontentsline{toc}{subsection}{TS A.3. Out-of-Sample Validation}
+
+\subsubsection*{Discussion}\label{discussion}
+\addcontentsline{toc}{subsubsection}{Discussion}
+
+\chapter{Aggregate Loss Models}\label{C:AggLossModels}
+
+Placeholder
+
+\section{Introduction}\label{introduction}
+
+\section{Individual Risk Model}\label{individual-risk-model}
+
+\section{Collective Risk Model}\label{collective-risk-model}
+
+\subsection{Moments and Distribution}\label{moments-and-distribution}
+
+\subsection{Stop-loss Insurance}\label{stop-loss-insurance}
+
+\subsection{Analytic Results}\label{analytic-results}
+
+\subsection{Tweedie Distribution}\label{tweedie-distribution}
+
+\section{Computing the Aggregate Claims
+Distribution}\label{computing-the-aggregate-claims-distribution}
+
+\subsection{Recursive Method}\label{recursive-method}
+
+\subsection{Simulation}\label{simulation}
+
+\section{Effects of Coverage
+Modifications}\label{effects-of-coverage-modifications}
+
+\subsection{Impact of Exposure on
+Frequency}\label{impact-of-exposure-on-frequency}
+
+\subsection{Impact of Deductibles on Claim
+Frequency}\label{impact-of-deductibles-on-claim-frequency}
+
+\subsection{Impact of Policy Modifications on Aggregate
+Claims}\label{impact-of-policy-modifications-on-aggregate-claims}
+
+\section{Further Resources and
+Contributors}\label{AL-further-reading-and-resources}
+
+\subsubsection*{Exercises}\label{exercises-1}
+\addcontentsline{toc}{subsubsection}{Exercises}
+
+\section{Generating Independent Uniform
+Observations}\label{generating-independent-uniform-observations}
+
+\section{Inverse Transform}\label{inverse-transform}
+
+\section{How Many Simulated Values?}\label{how-many-simulated-values}
+
+\chapter{Premium Calculation Fundamentals}\label{C:PremCalc}
+
+This is a placeholder file
+
+\chapter{Risk Classification}\label{C:RiskClass}
+
+Placeholder
+
+\section{Introduction}\label{S:RC:Introduction}
+
+\section{Poisson Regression Model}\label{S:RC:PoissonRegression}
+
+\subsection{Need for Poisson Regression}\label{S:RC:Need.Poi.reg}
+
+\subsection{Poisson Regression}\label{poisson-regression}
+
+\subsection{Incorporating Exposure}\label{incorporating-exposure}
+
+\subsection{Exercises}\label{exercises-2}
+
+\section{Categorical Variables and Multiplicative
+Tariff}\label{S:CatVarMultiTarriff}
+
+\subsection{Rating Ractors and Tariff}\label{rating-ractors-and-tariff}
+
+\subsection{Multiplicative Tariff
+Model}\label{multiplicative-tariff-model}
+
+\subsection{Poisson Regression for Multiplicative
+Tariff}\label{poisson-regression-for-multiplicative-tariff}
+
+\subsection{Numerical Examples}\label{numerical-examples}
+
+\section{Contributors and Further
+Resources}\label{RC:further-reading-and-resources}
+
+\subsubsection*{Further Reading and
+References}\label{further-reading-and-references}
+\addcontentsline{toc}{subsubsection}{Further Reading and References}
+
+\subsubsection*{Contributor}\label{contributor}
+\addcontentsline{toc}{subsubsection}{Contributor}
+
+\section{Technical Supplement -- Estimating Poisson Regression
+Models}\label{S:RC:mle-Pois-reg}
+
+\chapter{Experience Rating Using Credibility
+Theory}\label{C:Credibility}
+
+Placeholder
+
+\section{Introduction to Applications of Credibility
+Theory}\label{introduction-to-applications-of-credibility-theory}
+
+\section{Limited Fluctuation
+Credibility}\label{limited-fluctuation-credibility}
+
+\subsection{Full Credibility for Claim Frequency}\label{S:frequency}
+
+\subsection{Full Credibility for Aggregate Losses and Pure
+Premium}\label{full-credibility-for-aggregate-losses-and-pure-premium}
+
+\subsection{Full Credibility for
+Severity}\label{full-credibility-for-severity}
+
+\subsection{Partial Credibility}\label{partial-credibility}
+
+\section{Bühlmann Credibility}\label{buhlmann-credibility}
+
+\subsection{\texorpdfstring{Credibility Z, \emph{EPV}, and
+\emph{VHM}}{Credibility Z, EPV, and VHM}}\label{S:EPV-VHM-Z}
+
+\section{Bühlmann-Straub Credibility}\label{buhlmann-straub-credibility}
+
+\section{Bayesian Inference and
+Bühlmann}\label{bayesian-inference-and-buhlmann}
+
+\subsection{Gamma-Poisson Model}\label{gamma-poisson-model}
+
+\subsection{Exact Credibility}\label{exact-credibility}
+
+\section{Estimating Credibility
+Parameters}\label{estimating-credibility-parameters}
+
+\subsection{Full Credibility Standard for Limited Fluctuation
+Credibility}\label{full-credibility-standard-for-limited-fluctuation-credibility}
+
+\subsection{Nonparametric Estimation for Bühlmann and Bühlmann-Straub
+Models}\label{nonparametric-estimation-for-buhlmann-and-buhlmann-straub-models}
+
+\subsection{Semiparametric Estimation for Bühlmann and Bühlmann-Straub
+Models}\label{semiparametric-estimation-for-buhlmann-and-buhlmann-straub-models}
+
+\subsection{Balancing Credibility
+Estimators}\label{balancing-credibility-estimators}
+
+\section{Further Resources and
+Contributors}\label{Cred-further-reading-and-resources}
+
+\subsubsection*{Exercises}\label{exercises-3}
+\addcontentsline{toc}{subsubsection}{Exercises}
+
+\chapter{For the gamma distributions,
+use}\label{for-the-gamma-distributions-use}
+
+Placeholder
+
+\subsection{Classification Based on
+Moments}\label{classification-based-on-moments}
+
+\subsection{Comparison Based on Limiting Tail
+Behavior}\label{comparison-based-on-limiting-tail-behavior}
+
+\section{Risk Measures}\label{S:RiskMeasure}
+
+\subsection{Value-at-Risk}\label{value-at-risk}
+
+\subsection{Tail Value-at-Risk}\label{tail-value-at-risk}
+
+\subsection{Properties of risk
+measures}\label{properties-of-risk-measures}
+
+\subsection{Proportional Reinsurance}\label{S:ProportionalRe}
+
+\subsubsection{Quota Share is Desirable for
+Reinsurers}\label{quota-share-is-desirable-for-reinsurers}
+
+\subsubsection{Optimizing Quota Share Agreements for
+Insurers}\label{optimizing-quota-share-agreements-for-insurers}
+
+\subsection{Non-Proportional Reinsurance}\label{S:NonProportionalRe}
+
+\subsubsection{Excess of Loss}\label{excess-of-loss}
+
+\subsection{Additional Reinsurance Treaties}\label{S:AdditionalRe}
+
+\subsubsection{Surplus Share Proportional
+Treaty}\label{surplus-share-proportional-treaty}
+
+\subsubsection{Layers of Coverage}\label{layers-of-coverage}
+
+\chapter{Loss Reserving}\label{C:LossReserves}
+
+This is a placeholder file
+
+\chapter{Experience Rating using Bonus-Malus}\label{C:BonusMalus}
+
+This is a placeholder file
+
+\textbf{Bonus-Malus}
+
+Bonus-malus system, which is used interchangeably as ``no-fault
+discount'', ``merit rating'', ``experience rating'' or ``no-claim
+discount'' in different countries, is based on penalizing insureds who
+are responsible for one or more claims by a premium surcharge, and
+awarding insureds with a premium discount if they do not have any claims
+(Frangos and Vrontos, 2001). Insurers use bonus-malus systems for two
+main purposes; firstly, to encourage drivers to drive more carefully in
+a year without any claims, and secondly, to ensure insureds to pay
+premiums proportional to their risks which are based on their claims
+experience.
+
+\textbf{NCD and Experience Rating}
+
+No Claim Discount (NCD) system is an experience rating system commonly
+used in motor insurance. NCD system represents an attempt to categorize
+insureds into homogeneous groups who pay premiums based on their claims
+experience. Depending on the rules in the scheme, new policyholders may
+be required to pay full premium initially, and obtain discounts in the
+future years as a results of claim-free years.
+
+\textbf{Hunger for Bonus }
+
+An NCD system rewards policyholders for not making any claims during a
+year, or in other words, it grants a bonus to a careful driver. This
+bonus principle may affect policy holders' decisions whether to claim or
+not to claim, especially when involving accidents with slight damages,
+which is known as `hunger for bonus' phenomenon (Philipson, 1960). The
+option of `hunger for bonus' implemented on insureds under an NCD system
+may reduce insurers' claim costs, and may be able to offset the expected
+decrease in premium income.
+
+\chapter{Data Systems}\label{C:DataSystems}
+
+Placeholder
+
+\section{Data}\label{data}
+
+\subsection{Data Types and Sources}\label{data-types-and-sources}
+
+\subsection{Data Structures and
+Storage}\label{data-structures-and-storage}
+
+\subsection{Data Quality}\label{data-quality}
+
+\subsection{Data Cleaning}\label{data-cleaning}
+
+\section{Data Analysis Preliminary}\label{data-analysis-preliminary}
+
+\subsection{Data Analysis Process}\label{S:process}
+
+\subsection{Exploratory versus
+Confirmatory}\label{exploratory-versus-confirmatory}
+
+\subsection{Supervised versus
+Unsupervised}\label{supervised-versus-unsupervised}
+
+\subsection{Parametric versus
+Nonparametric}\label{parametric-versus-nonparametric}
+
+\subsection{Explanation versus Prediction}\label{S:expred}
+
+\subsection{Data Modeling versus Algorithmic
+Modeling}\label{data-modeling-versus-algorithmic-modeling}
+
+\subsection{Big Data Analysis}\label{big-data-analysis}
+
+\subsection{Reproducible Analysis}\label{reproducible-analysis}
+
+\subsection{Ethical Issues}\label{ethical-issues}
+
+\section{Data Analysis Techniques}\label{data-analysis-techniques}
+
+\subsection{Exploratory Techniques}\label{exploratory-techniques}
+
+\subsection{Descriptive Statistics}\label{descriptive-statistics}
+
+\subsubsection{Principal Component
+Analysis}\label{principal-component-analysis}
+
+\subsection{Cluster Analysis}\label{cluster-analysis}
+
+\subsection{Confirmatory Techniques}\label{confirmatory-techniques}
+
+\subsubsection{Linear Models}\label{linear-models}
+
+\subsubsection{Generalized Linear
+Models}\label{generalized-linear-models}
+
+\subsubsection{Tree-based Models}\label{tree-based-models}
+
+\section{Some R Functions}\label{some-r-functions}
+
+\section{Summary}\label{summary}
+
+\section{Further Resources and
+Contributors}\label{DS:further-reading-and-resources}
+
+\chapter{Dependence Modeling}\label{C:DependenceModel}
+
+Placeholder
+
+\section{Variable Types}\label{S:VarTypes}
+
+\subsection{Qualitative Variables}\label{S:QuaVar}
+
+\subsection{Quantitative Variables}\label{S:QuanVar}
+
+\subsection{Multivariate Variables}\label{multivariate-variables}
+
+\section{Classic Measures of Scalar Associations}\label{S:Measures}
+
+\subsection{Association Measures for Quantitative
+Variables}\label{association-measures-for-quantitative-variables}
+
+\subsubsection{Pearson Correlation}\label{pearson-correlation}
+
+\subsection{Pearson correlation between Claim and
+Coverage}\label{pearson-correlation-between-claim-and-coverage}
+
+\subsection{Pearson correlation between Claim and
+log(Coverage)}\label{pearson-correlation-between-claim-and-logcoverage}
+
+\subsection{Rank Based Measures}\label{rank-based-measures}
+
+\subsubsection{Spearman's Rho}\label{spearmans-rho}
+
+\subsection{Spearman correlation between Claim and
+Coverage}\label{spearman-correlation-between-claim-and-coverage}
+
+\subsection{Spearman correlation between Claim and
+log(Coverage)}\label{spearman-correlation-between-claim-and-logcoverage}
+
+\subsubsection{Kendall's Tau}\label{kendalls-tau}
+
+\subsection{Kendall's tau correlation between Claim and
+Coverage}\label{kendalls-tau-correlation-between-claim-and-coverage}
+
+\subsection{Kendall's tau correlation between Claim and
+log(Coverage)}\label{kendalls-tau-correlation-between-claim-and-logcoverage}
+
+\subsection{Nominal Variables}\label{nominal-variables}
+
+\subsubsection{Bernoulli Variables}\label{bernoulli-variables}
+
+\subsubsection{Categorical Variables}\label{categorical-variables}
+
+\subsubsection{Ordinal Variables}\label{ordinal-variables}
+
+\subsubsection{Parametric Approach Using Normal Based
+Correlations}\label{parametric-approach-using-normal-based-correlations}
+
+\subsubsection{Interval Variables}\label{interval-variables}
+
+\subsubsection{Discrete and Continuous
+Variables}\label{discrete-and-continuous-variables}
+
+\section{Introduction to Copulas}\label{S:Copula}
+
+\section{Application Using Copulas}\label{S:CopAppl}
+
+\subsection{Data Description}\label{data-description}
+
+\subsection{Marginal Models}\label{marginal-models}
+
+\subsection{Probability Integral
+Transformation}\label{probability-integral-transformation}
+
+\subsection{Joint Modeling with Copula
+Function}\label{joint-modeling-with-copula-function}
+
+\section{Types of Copulas}\label{S:CopTyp}
+
+\subsection{Elliptical Copulas}\label{elliptical-copulas}
+
+\subsection{Archimedian Copulas}\label{archimedian-copulas}
+
+\subsubsection{Clayton Copula}\label{clayton-copula}
+
+\subsubsection{Gumbel-Hougaard copula}\label{gumbel-hougaard-copula}
+
+\subsection{Properties of Copulas}\label{properties-of-copulas}
+
+\subsubsection{Bounds on Association}\label{bounds-on-association}
+
+\subsubsection{Measures of Association}\label{measures-of-association}
+
+\subsubsection{Tail Dependency}\label{tail-dependency}
+
+\section{Why is Dependence Modeling Important?}\label{S:CopImp}
+
+\subsection{Normal Copula}\label{normal-copula}
+
+\subsection{Normal Copula}\label{normal-copula-1}
+
+\section{Further Resources and
+Contributors}\label{Dep:further-reading-and-resources}
+
+\section*{Technical Supplement A. Other Classic Measures of Scalar
+Associations}\label{technical-supplement-a.-other-classic-measures-of-scalar-associations}
+\addcontentsline{toc}{section}{Technical Supplement A. Other Classic
+Measures of Scalar Associations}
+
+\subsection*{A.1. Blomqvist's Beta}\label{a.1.-blomqvists-beta}
+\addcontentsline{toc}{subsection}{A.1. Blomqvist's Beta}
+
+\subsection{Blomqvist's beta correlation between Claim and
+Coverage}\label{blomqvists-beta-correlation-between-claim-and-coverage}
+
+\subsection{Blomqvist's beta correlation between Claim and
+log(Coverage)}\label{blomqvists-beta-correlation-between-claim-and-logcoverage}
+
+\subsection{Blomqvist's beta correlation between Claim and
+Coverage}\label{blomqvists-beta-correlation-between-claim-and-coverage-1}
+
+\subsection{Blomqvist's beta correlation between Claim and
+log(Coverage)}\label{blomqvists-beta-correlation-between-claim-and-logcoverage-1}
+
+\subsection*{A.2. Nonparametric Approach Using Spearman Correlation with
+Tied
+Ranks}\label{a.2.-nonparametric-approach-using-spearman-correlation-with-tied-ranks}
+\addcontentsline{toc}{subsection}{A.2. Nonparametric Approach Using
+Spearman Correlation with Tied Ranks}
+
+\chapter{Appendix A: Review of Statistical Inference}\label{C:AppA}
+
+Placeholder
+
+\section{Basic Concepts}\label{S:AppA:BASIC}
+
+\subsection{Random Sampling}\label{random-sampling}
+
+\subsection{Sampling Distribution}\label{sampling-distribution}
+
+\subsection{Central Limit Theorem}\label{central-limit-theorem}
+
+\section{Point Estimation and Properties}\label{S:AppA:PE}
+
+\subsection{Method of Moments
+Estimation}\label{method-of-moments-estimation}
+
+\subsection{Maximum Likelihood
+Estimation}\label{maximum-likelihood-estimation}
+
+\section{Interval Estimation}\label{S:AppA:IE}
+
+\subsection{Exact Distribution for Normal Sample
+Mean}\label{S:AppA:IE:ED}
+
+\subsection{Large-sample Properties of
+MLE}\label{large-sample-properties-of-mle}
+
+\subsection{Confidence Interval}\label{confidence-interval}
+
+\section{Hypothesis Testing}\label{S:AppA:HT}
+
+\subsection{Basic Concepts}\label{basic-concepts}
+
+\subsection{\texorpdfstring{Student-\(t\) test based on
+MLE}{Student-t test based on MLE}}\label{student-t-test-based-on-mle}
+
+\subsection{Likelihood Ratio Test}\label{S:AppA:HT:LRT}
+
+\subsection{Information Criteria}\label{S:AppA:HT:IC}
+
+\chapter{Appendix B: Iterated Expectations}\label{C:AppB}
+
+Placeholder
+
+\section{Conditional Distribution and Conditional
+Expectation}\label{S:AppB:CD}
+
+\subsection{Conditional Distribution}\label{conditional-distribution}
+
+\subsubsection{Discrete Case}\label{discrete-case}
+
+\subsubsection{Continuous Case}\label{continuous-case}
+
+\subsection{Conditional Expectation and Conditional
+Variance}\label{conditional-expectation-and-conditional-variance}
+
+\subsubsection{Discrete Case}\label{discrete-case-1}
+
+\subsubsection{Continuous Case}\label{continuous-case-1}
+
+\section{Iterated Expectations and Total Variance}\label{S:AppB:IE}
+
+\subsection{Law of Iterated
+Expectations}\label{law-of-iterated-expectations}
+
+\subsection{Law of Total Variance}\label{law-of-total-variance}
+
+\subsection{Application}\label{application}
+
+\chapter{Appendix C: Maximum Likelihood Theory}\label{C:AppC}
+
+Placeholder
+
+\section{Likelihood Function}\label{S:AppC:LF}
+
+\subsection{Likelihood and Log-likelihood
+Functions}\label{likelihood-and-log-likelihood-functions}
+
+\subsection{Properties of Likelihood
+Functions}\label{properties-of-likelihood-functions}
+
+\section{Maximum Likelihood Estimators}\label{S:AppC:MLE}
+
+\subsection{Definition and Derivation of
+MLE}\label{definition-and-derivation-of-mle}
+
+\subsection{Asymptotic Properties of
+MLE}\label{asymptotic-properties-of-mle}
+
+\subsection{Use of Maximum Likelihood
+Estimation}\label{use-of-maximum-likelihood-estimation}
+
+\section{Statistical Inference Based on Maximum Likelhood
+Estimation}\label{S:AppC:SI}
+
+\subsection{Hypothesis Testing}\label{hypothesis-testing}
+
+\subsection{MLE and Model Validation}\label{S:AppC:MLEModelVal}
+
+\bibliography{Bibliography/LDAReferenceB.bib}
+
+
+\end{document}
