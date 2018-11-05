@@ -345,7 +345,7 @@ accident. Here, it is often helpful to determine which party is at
 fault, one needs to assess damage to all of the vehicles and people
 involved in the incident, both insured and non-insured, the expenses
 incurred in assessing the damages, and so forth. The process of
-determining coverage, legal liability, and settling claims is known as <a href="#" class="tooltip" style="color:green">*claims adjustment*.<span style="font-size:8pt">Claims adjustment is the process of determining coverage, legal liability, and settling claims.</span></a>
+determining coverage, legal liability, and settling claims is known as <a href="#" class="tooltip" style="color:green">*claims adjustment*<span style="font-size:8pt">Claims adjustment is the process of determining coverage, legal liability, and settling claims.</span></a>.
 
 
 Insurance managers sometimes use the phrase 
@@ -395,9 +395,9 @@ monitor customer loyalty.
 Analytics can also be used to manage the portfolio, or collection, of
 risks that an insurer has acquired. When the risk is initially obtained,
 the insurer's risk can be managed by imposing contract parameters that
-modify contract payouts. Chapters \@ref(C:Severity) and \@ref(C:PortMgt) describe common modifications including <a href="#" class="tooltip" style="color:green">coinsurance,<span style="font-size:8pt">Coinsurance is an arrangement whereby the insured and insurer share the covered losses. Typically, a coinsurance parameter specified means that both parties receive a proportional share, e.g., 50%, of the loss.</span></a>
-<a href="#" class="tooltip" style="color:green">deductibles,<span style="font-size:8pt">A deductible is a parameter specified in the contract. Typically, losses below the deductible are paid by the policyholder whereas losses in excess of the deductible are the insurer's responsibility (subject to policy limits and coinsurance).</span></a> and 
-<a href="#" class="tooltip" style="color:green">policy upper limits.<span style="font-size:8pt">A policy limit is the maximum value covered by a policy.</span></a>
+modify contract payouts. Chapters \@ref(C:Severity) and \@ref(C:PortMgt) describe common modifications including <a href="#" class="tooltip" style="color:green">coinsurance<span style="font-size:8pt">Coinsurance is an arrangement whereby the insured and insurer share the covered losses. Typically, a coinsurance parameter specified means that both parties receive a proportional share, e.g., 50%, of the loss.</span></a>,
+<a href="#" class="tooltip" style="color:green">deductibles<span style="font-size:8pt">A deductible is a parameter specified in the contract. Typically, losses below the deductible are paid by the policyholder whereas losses in excess of the deductible are the insurer's responsibility (subject to policy limits and coinsurance).</span></a>, and 
+<a href="#" class="tooltip" style="color:green">policy upper limits<span style="font-size:8pt">A policy limit is the maximum value covered by a policy.</span></a>.
 
  
 After the contract has been agreed upon with an insured, the insurer may
@@ -419,8 +419,8 @@ future obligations in respect to obligations made. The size of this
 reservoir of wealth, and the importance of ensuring its adequacy, is a major concern for the
 insurance industry.
 
-Setting aside money for unpaid claims is known as <a href="#" class="tooltip" style="color:green">*loss reserving*;<span style="font-size:8pt">A loss reserve is an estimate of liability indicating the amount the insurer expects to pay for claims that have not yet been realized. This includes losses incurred but not yet reported (IBNR) and those claims that have been reported claims that haven't been paid (known by the acronym RBNS for reported but not settled).</span></a> in some jurisdictions, reserves are also known as *technical provisions*. We saw in Figure \@ref(fig:StochOperations) several times at which a company summarizes its financial position; these times are known as 
-<a href="#" class="tooltip" style="color:green">*valuation dates.*<span style="font-size:8pt">A valuation date is the date at which a company summarizes its financial position, typically quarterly or annually.</span></a> Claims that arise prior to valuation dates have typically been or are about to paid; claims in the future of these valuation dates are unknown. A company must estimate these outstanding liabilities when determining its financial strength. Accurately determining loss reserves is important to insurers for many reasons.
+Setting aside money for unpaid claims is known as <a href="#" class="tooltip" style="color:green">*loss reserving*<span style="font-size:8pt">A loss reserve is an estimate of liability indicating the amount the insurer expects to pay for claims that have not yet been realized. This includes losses incurred but not yet reported (IBNR) and those claims that have been reported claims that haven't been paid (known by the acronym RBNS for reported but not settled).</span></a>; in some jurisdictions, reserves are also known as *technical provisions*. We saw in Figure \@ref(fig:StochOperations) several times at which a company summarizes its financial position; these times are known as 
+<a href="#" class="tooltip" style="color:green">*valuation dates*<span style="font-size:8pt">A valuation date is the date at which a company summarizes its financial position, typically quarterly or annually.</span></a>. Claims that arise prior to valuation dates have typically been or are about to paid; claims in the future of these valuation dates are unknown. A company must estimate these outstanding liabilities when determining its financial strength. Accurately determining loss reserves is important to insurers for many reasons.
 
 1.  Loss reserves represent an anticipated claim that the insurer owes its customers.
     Under-reserving may result in a failure to meet claim liabilities.
@@ -622,7 +622,7 @@ accident or in the workplace, it can take years before costs are fully
 known.
 
 Table \@ref(tab:CoverageBCIM) shows that the average claim varies over time,
-especially with the high 2010 value due to a single large claim [^1]. The
+especially with the high 2010 value due to a single large claim [^1.1]. The
 total number of policyholders is steadily declining and, conversely, the
 coverage is steadily increasing. The coverage variable is the amount of
 coverage of the property and contents. Roughly, you can think of it as
@@ -649,7 +649,7 @@ We will make this vague idea much more precise as we proceed.
 
   Table: (\#tab:CoverageBCIM) Building and Contents Claims Summary
 
-[^1]: Note that the average severity in Table \@ref(tab:CoverageBCIM) differs from that reported in Table \@ref(tab:Severity2010). This is because the former includes policyholders with zero claims where as the latter does not. This is an important distinction that we will address in later portions of the text. 
+[^1.1]: Note that the average severity in Table \@ref(tab:CoverageBCIM) differs from that reported in Table \@ref(tab:Severity2010). This is because the former includes policyholders with zero claims where as the latter does not. This is an important distinction that we will address in later portions of the text. 
 
 <h5 style="text-align: center;"><a id="display.CoverageBC.1" href="javascript:togglecode('display.CoverageBC.2','display.CoverageBC.1');"><i><strong>R Code for Building and Contents Claims Summary</strong></i></a> </h5>
 <div id="display.CoverageBC.2" style="display: none">

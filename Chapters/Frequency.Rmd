@@ -1028,13 +1028,6 @@ Here are a set of exercises that guide the viewer through some of the theoretica
 [Frequency Distribution Guided Tutorials](https://www.ssc.wisc.edu/~jfrees/loss-data-analytics/loss-data-analytics-problems/)
 </p>
 
-## Quiz {#S:freq-quiz}
-
-<iframe name='proprofs' id='proprofs' width='800' height='400' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofs.com/quiz-school/story.php?title=mji5ntm3oqhvx2&id=2295130&ew=430'>
-</iframe>
-<div style='font-size:10px; font-family:Arial, Helvetica, sans-serif; text-align:left;'><a href='https://www.proprofs.com/quiz-school/story.php?title=mji5ntm3oqhvx2' target='_blank' title='ProProfs - Frequency Quiz'>ProProfs - Frequency Quiz</a> » <a href='https://www.proprofs.com/quiz-school/' title='ProProfs Quiz' target='_blank' rel='nofollow'>ProProfs Quiz</a></div>
-
-
 
 ## R Code for Plots in this Chapter
 
